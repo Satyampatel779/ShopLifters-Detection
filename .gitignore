@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+/data/app.db
+/data/uploads/
+/data/watchlist/
+/data/snapshots/
+/data/processed/

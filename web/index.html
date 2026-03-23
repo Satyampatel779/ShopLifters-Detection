@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopLifters Detection Demo</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body>
+    <div class="ambient"></div>
+    <header class="hero">
+      <div class="hero-left">
+        <div class="eyebrow">Computer Vision Project Showcase</div>
+        <h1>Retail Vision Intelligence Platform</h1>
+        <p class="subtitle">
+          End-to-end CV system for watchlist face matching, people tracking, aisle analytics, and live alerting.
+          Built to demonstrate production-style engineering decisions and real-time operations UX.
+        </p>
+      </div>
+      <div class="hero-right">
+        <div class="tech-stack">FastAPI + YOLOv8x + SFace + WebSockets</div>
+        <div class="status-chip" id="stat-status">System Ready</div>
+      </div>
+    </header>
+
+    <section class="stats-grid">
+      <article class="stat-card">
+        <h3>Watchlist Profiles</h3>
+        <div id="stat-watchlist" class="stat-value">0</div>
+      </article>
+      <article class="stat-card">
+        <h3>Live Alerts</h3>
+        <div id="stat-alerts" class="stat-value">0</div>
+      </article>
+      <article class="stat-card">
+        <h3>Detected Tracks</h3>
+        <div id="stat-profiles" class="stat-value">0</div>
+      </article>
+      <article class="stat-card">
+        <h3>Live Telemetry</h3>
+        <div id="live-telemetry" class="stat-mini">Waiting for stream...</div>
+      </article>
+    </section>
+
+    <main class="layout">
+      <section class="console">
+        <div class="panel">
+          <h2>Operator Console</h2>
+          <form id="watchlist-form" class="inline-form">
+            <div class="field-group">
+              <label>Name</label>
+              <input type="text" name="name" required placeholder="Person name" />
+            </div>
+            <div class="field-group">
+              <label>Face Photo</label>
+              <input type="file" name="image" accept="image/*" required />
+            </div>
+            <button type="submit">Add Watchlist Profile</button>
+          </form>
+          <div id="watchlist-status" class="status"></div>
+          <div id="watchlist-items" class="chips"></div>
+
+          <form id="video-form" class="inline-form top-gap">
+            <div class="field-group">
+              <label>CCTV Video Input</label>
+              <input type="file" name="video" accept="video/*" required />
+            </div>
+            <button type="submit">Start Real-Time Processing</button>
+          </form>
+          <div id="video-status" class="status"></div>
+          <div id="video-meta" class="status"></div>
+        </div>
+
+        <div class="panel">
+          <h2>Live Detection Feed</h2>
+          <img id="live-preview" class="preview" alt="Live detection preview" />
+          <div class="status-note">Live boxes display track id and aisle assignment.</div>
+          <h3>Processed Output Video</h3>
+          <video id="result-video" class="preview" controls></video>
+          <div id="result-status" class="status"></div>
+        </div>
+      </section>
+
+      <aside class="evidence">
+        <section class="panel">
+          <h2>Live Incident Alerts</h2>
+          <div id="alerts"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Person Track Profiles</h2>
+          <div id="profiles"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Recruiter Snapshot</h2>
+          <ul class="snapshot-list">
+            <li>Designed asynchronous vision pipeline with FastAPI + worker threading.</li>
+            <li>Integrated high-accuracy person detection and face embeddings.</li>
+            <li>Built real-time stream preview and automatic evidence generation.</li>
+            <li>Implemented track lifecycle, aisle mapping, and alert suppression.</li>
+          </ul>
+          <div id="activity-feed" class="activity-feed"></div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/assets/script.js"></script>
+  </body>
+</html>
